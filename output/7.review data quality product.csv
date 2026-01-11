@@ -1,0 +1,7 @@
+"check_name","total_records","failed_records","failure_percentage","run_date"
+"Missing Customer ID",541909,135080,"24.93","2026-01-10"
+"Duplicate Invoice Numbers",541909,536068,"98.92","2026-01-10"
+"Duplicate Invoice Numbers",541909,536068,"98.92","2026-01-10"
+"Invalid Quantity",541909,10624,"1.96","2026-01-10"
+"Invalid Unit Price",541909,2517,"0.46","2026-01-10"
+"Future Invoice Dates",541909,0,"0.00","2026-01-10"
