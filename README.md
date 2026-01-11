@@ -105,9 +105,9 @@ The project implements a **modular analytics pipeline**:
 ## Dashboard
 
 The interactive Power BI dashboard visualizes KPIs, data quality issues, and anomalies.  
-You can download and open the dashboard here:
+You can download and open the dashboard png :
 
-![Dashboard Sample](images/dashboard_sample.png)
+![Dashboard Sample](https://github.com/Tanishka-001/data-quality-kpi-monitoring-system/blob/4ecfc8e750f03ead281487a59d8aa695fcebfc56/powerbi%20dashboad/data%20quality%26%20business%20kpi%20monitoring.png)
 
 
 **Alert Table Sample:**
