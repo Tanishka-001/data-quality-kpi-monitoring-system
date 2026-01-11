@@ -1,0 +1,1 @@
+The accompanying document comprehensively details all the SQL queries used from the start to the end of the process. These queries have been successfully executed within the PostgreSQL environment.
