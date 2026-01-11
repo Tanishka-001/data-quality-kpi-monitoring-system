@@ -123,7 +123,7 @@ You can download and open the dashboard here:
 All data quality and anomaly detection steps are implemented in Python.  
 You can view and run the notebook here:
 
-[Open in Google Colab](https://colab.research.google.com/github/<your-username>/data-quality-kpi-monitoring-system/blob/main/notebooks/data_quality_validation.ipynb)
+[Open in Google Colab](https://colab.research.google.com/drive/1QTB7mOUicjQTd2cJQI_4gAUuJFkiPr9h?usp=sharing)
 
 ---
 
