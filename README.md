@@ -77,14 +77,15 @@ The project implements a **modular analytics pipeline**:
 
 ## Sample Output Table
 
-| Issue Type                | Failed Records | Failure (%) |
+| Issue Type                | Failed Records | Failure (%)|
 |---------------------------|----------------|------------|
 | Missing Customer ID       | 135,080        | 24.93      |
-| Duplicate Invoice Numbers | 1,072,136      | 197.84     |
+| Duplicate Invoice Numbers | 536,068        | 98.92      |
 | Invalid Quantity          | 10,624         | 1.96       |
 | Invalid Unit Price        | 2,517          | 0.46       |
 | Future Invoice Dates      | 0              | 0.00       |
 
+*Note: high duplicate-invoice rate is expected — each invoice covers multiple line items (one row per product bought), not an error.*
 ---
 
 ## Skills and Technologies
