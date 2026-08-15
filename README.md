@@ -1,136 +1,261 @@
 # Data Quality & Business KPI Monitoring System
 
 ## Executive Summary
-This project implements an end-to-end **data quality and business KPI monitoring system** for transactional retail data.  
-The system validates data, monitors KPIs, detects anomalies, and provides a **Power BI dashboard** for stakeholders.  
-It demonstrates an applied analytics workflow similar to what is used in real business operations.
+
+The Data Quality & Business KPI Monitoring System is an end-to-end data analytics project that evaluates retail transaction data for quality issues, calculates an overall data quality score, monitors business KPIs, and detects unusual revenue patterns.
+
+Using Python and Power BI, the project transforms 541,909 retail transaction records into data-quality metrics, daily business KPIs, anomaly alerts, and an interactive monitoring dashboard.
 
 ---
 
 ## Problem Statement
-Organizations often rely on transactional data for decision-making, but poor data quality can lead to:
 
-- Incorrect KPIs and misleading trends  
-- Financial losses due to undetected anomalies  
-- Inefficient operational responses  
+Poor-quality transactional data can affect the reliability of business reporting and decision-making.
 
-This project addresses the need for **automated data validation and monitoring** to improve data reliability.
+This project focuses on identifying:
+
+- Missing Customer IDs
+- Duplicate InvoiceNo + StockCode records
+- Invalid quantities
+- Invalid unit prices
+- Future invoice dates
+
+It also monitors revenue and transaction volume and identifies unusual daily revenue values.
 
 ---
 
 ## Business Impact
-- Provides a **single source of truth** for key business metrics  
-- Identifies critical data quality issues early  
-- Supports timely interventions for revenue anomalies  
-- Improves stakeholder confidence in analytics outputs
+
+The system helps analysts and business stakeholders:
+
+- Identify major data-quality issues
+- Quantify the impact of each issue
+- Monitor overall data reliability
+- Track revenue and transaction-volume trends
+- Identify unusual revenue activity
+- Investigate potential issues through an interactive dashboard
 
 ---
 
 ## Solution
-The project implements a **modular analytics pipeline**:
 
-1. **Data Quality Checks (SQL/Python)**  
-   - Missing values, duplicate invoices, invalid ranges, future dates  
+The project follows an end-to-end workflow:
 
-2. **Data Quality Scoring**  
-   - Weighted score combining impact of all failed checks  
+Raw Retail Data  
+↓  
+Data Quality Validation  
+↓  
+Data Quality Summary  
+↓  
+Failure Percentage Calculation  
+↓  
+Weighted Data Quality Score  
+↓  
+Daily Revenue & Transaction Volume  
+↓  
+Statistical Anomaly Detection  
+↓  
+Alert Log  
+↓  
+Power BI Dashboard
 
-3. **KPI Monitoring**  
-   - Revenue, transaction volume, failure impact tracked daily  
-
-4. **Anomaly Detection**  
-   - Rule-based detection for revenue spikes and drops  
-
-5. **Power BI Dashboard**  
-   - Visualizes KPIs, data quality issues, and alerts  
+The final dashboard brings data-quality monitoring and business KPI monitoring together in one view.
 
 ---
 
 ## Methodology
-1. **Data Cleaning & Validation**
-   - Missing Customer IDs  
-   - Duplicate invoice numbers  
-   - Negative quantities and prices  
-   - Future invoice dates  
 
-2. **Data Quality Scoring**
-   - Weighted failure impact applied:  
-     - Missing Customer ID: 30%  
-     - Duplicate Invoice Numbers: 30%  
-     - Invalid Quantity: 20%  
-     - Invalid Unit Price: 10%  
-     - Future Invoice Dates: 10%  
-   - Final score = 100 − Σ(weighted failure %)  
+### 1. Data Loading & Inspection
 
-3. **KPI Calculation**
-   - Revenue = Quantity × Unit Price  
-   - Daily aggregation of revenue and transaction volume  
+The dataset contains 541,909 records and 8 columns, including InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, and Country.
 
-4. **Anomaly Detection**
-   - Statistical thresholds (mean ± 2σ)  
-   - Flagged “High Spike” or “Sharp Drop”  
+### 2. Data Quality Validation
 
-5. **Dashboarding**
-   - Power BI used to create KPI cards, line charts, tables, and alerts  
+Five checks were performed:
+
+| Check | Failed Records |
+|---|---:|
+| Missing Customer ID | 135,080 |
+| Duplicate InvoiceNo + StockCode records | 20,378 |
+| Invalid Quantity | 1,336 |
+| Invalid Unit Price | 2 |
+| Future Invoice Dates | 0 |
+
+### 3. Data Quality Scoring
+
+A weighted scoring model was used with weights of 30%, 30%, 20%, 10%, and 10%.
+
+The final calculated score was:
+
+**91.343 / 100**
+
+Displayed in Power BI as:
+
+**91.34 / 100**
+
+### 4. Business KPI Preparation
+
+Revenue was calculated as:
+
+`Revenue = Quantity × UnitPrice`
+
+Daily revenue and transaction volume were then aggregated by date.
+
+### 5. Revenue Anomaly Detection
+
+Daily revenue was evaluated using a statistical threshold based on:
+
+`Mean ± 2 × Standard Deviation`
+
+Daily values were classified as:
+
+- High Spike
+- Sharp Drop
+- Normal
+
+The final dashboard shows **12 High Spike alerts**.
 
 ---
 
 ## Sample Output Table
 
-| Issue Type                | Failed Records | Failure (%)|
-|---------------------------|----------------|------------|
-| Missing Customer ID       | 135,080        | 24.93      |
-| Duplicate Invoice Numbers | 536,068        | 98.92      |
-| Invalid Quantity          | 10,624         | 1.96       |
-| Invalid Unit Price        | 2,517          | 0.46       |
-| Future Invoice Dates      | 0              | 0.00       |
+### Data Quality Summary
 
-*Note: high duplicate-invoice rate is expected — each invoice covers multiple line items (one row per product bought), not an error.*
+| Issue Type | Failed Records | Failure Percentage |
+|---|---:|---:|
+| Missing Customer ID | 135,080 | 24.93% |
+| Duplicate InvoiceNo + StockCode records | 20,378 | 3.76% |
+| Invalid Quantity | 1,336 | 0.25% |
+| Invalid Unit Price | 2 | 0.00% |
+| Future Invoice Dates | 0 | 0.00% |
+
+### Dashboard KPIs
+
+| KPI | Value |
+|---|---:|
+| Total Revenue | 9.75M |
+| Transaction Volume | 542K |
+| Failure Rate | 25.69% |
+| Data Quality Score | 91.34 / 100 |
+| High Spike Alerts | 12 |
+
 ---
 
 ## Skills and Technologies
-- **Python:** pandas, numpy, Jupyter / Google Colab  
-- **SQL:** data quality queries and aggregations  
-- **Power BI:** dashboards, KPI cards, trend charts, alert tables  
-- **Analytics Concepts:** data quality metrics, weighted scoring, KPI monitoring, anomaly detection  
+
+### Programming & Data Analysis
+- Python
+- Pandas
+- NumPy
+- Data Cleaning
+- Data Validation
+- Statistical Analysis
+
+### Business Intelligence
+- Power BI
+- KPI Monitoring
+- Interactive Dashboards
+- Data Visualization
+- Slicers and Filters
+
+### Data Quality & Analytics
+- Missing-value detection
+- Duplicate detection
+- Rule-based validation
+- Data quality scoring
+- Failure-rate analysis
+- Revenue analysis
+- Trend analysis
+- Statistical anomaly detection
+
+### Tools
+- Google Colab
+- Power BI
+- GitHub
 
 ---
 
 ## Results
-- **Total Revenue:** 452,130  
-- **Transaction Volume:** 1,230  
-- **Failure Impact (%):** 21.83  
-- **Data Quality Score:** 62.47%  
-- **Anomaly Detection:** Detected high revenue spikes with detailed alert log
+
+The project successfully processed 541,909 retail transaction records and identified multiple data-quality issues.
+
+Key results include:
+
+- **135,080** records with missing Customer IDs
+- **20,378** duplicate InvoiceNo + StockCode records
+- **1,336** invalid quantity records
+- **2** invalid unit-price records
+- **0** future-dated invoices
+- **91.343 / 100** overall data quality score
+- **9.75M** total revenue shown in the dashboard
+- **542K** transaction volume shown in the dashboard
+- **25.69%** average failure rate shown in the dashboard
+- **12** High Spike revenue alerts
+
+The resulting Power BI dashboard provides a consolidated view of data quality and business performance.
+
+---
 
 ## Dashboard
 
-The interactive Power BI dashboard visualizes KPIs, data quality issues, and anomalies.  
-You can download and open the dashboard png :
+The final Power BI dashboard contains:
 
-![Dashboard Sample](https://github.com/Tanishka-001/data-quality-kpi-monitoring-system/blob/4ecfc8e750f03ead281487a59d8aa695fcebfc56/powerbi%20dashboad/data%20quality%26%20business%20kpi%20monitoring.png)
+### KPI Cards
+- Total Revenue
+- Transaction Volume
+- Failure Rate
+- Data Quality Score
 
+### Trend Visualizations
+- Daily Revenue Trend
+- Transaction Volume Trend
+- Failure Rate Trend
 
-**Alert Table Sample:**
+### Data Quality Analysis
+- Failed Records by Issue Type
 
-| Date       | Daily Revenue | Anomaly Type | Alert Reason |
-|------------|---------------|--------------|--------------|
-| 2010-12-08 | 633,536.76    | High Spike   | Revenue deviated significantly from historical average |
-| 2010-12-09 | 181,419.00    | High Spike   | Revenue deviated significantly from historical average |
-| 2010-12-03 | 138,348.60    | High Spike   | Revenue deviated significantly from historical average |
+### Revenue Anomaly Monitoring
+- High Spike alert count
+
+### Interactive Filtering
+- Date-range slicer
+
+![Data Quality & Business KPI Monitoring Dashboard](images/dashboard.png)
+
+---
 
 ## Python Notebook
 
-All data quality and anomaly detection steps are implemented in Python.  
-You can view and run the notebook here:
+The Python notebook contains the complete analytical workflow:
 
-[Open in Google Colab](https://colab.research.google.com/drive/1QTB7mOUicjQTd2cJQI_4gAUuJFkiPr9h?usp=sharing)
+1. Loading libraries
+2. Reading and inspecting the dataset
+3. Missing-value checks
+4. Duplicate InvoiceNo + StockCode checks
+5. Invalid quantity checks
+6. Invalid price checks
+7. Future-date checks
+8. Data quality summary
+9. Weighted data quality score calculation
+10. Daily revenue calculation
+11. Transaction-volume calculation
+12. Statistical threshold calculation
+13. Revenue anomaly classification
+14. Alert-log generation
+
+The notebook generates the datasets used for the Power BI dashboard.
 
 ---
 
 ## Next Steps / Future Work
-- Real-time dashboard updates using streaming data  
-- Machine learning–based anomaly detection for more complex patterns  
-- Automated alert notifications via email/Slack  
-- Integration with multi-source datasets  
-- Expand data quality metrics with more complex validation rules  
+
+Potential improvements include:
+
+- Automated scheduled data refresh
+- Automated anomaly notifications
+- Additional data-quality checks
+- Historical data-quality score tracking
+- More detailed revenue anomaly investigation
+- Product- and customer-level KPI analysis
+- Additional Power BI drill-through pages
+- Automated reporting for stakeholders
