@@ -1,0 +1,6 @@
+Issue Type,Failed Records,Failure Percentage,Weighted Impact
+Missing Customer ID,135080,24.93,7.479
+Duplicate Invoice Line Items,20378,3.76,1.128
+Invalid Quantity,1336,0.25,0.05
+Invalid Unit Price,2,0.0,0.0
+Future Invoice Dates,0,0.0,0.0

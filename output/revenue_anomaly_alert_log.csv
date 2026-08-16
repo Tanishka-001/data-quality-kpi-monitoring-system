@@ -1,0 +1,13 @@
+Date,Daily Revenue,Transaction Volume,Failure Rate (%),Anomaly Type,Alert Reason
+2011-01-11,67817.13,1454,40.65,High Spike,Revenue deviated significantly from historical average
+2011-03-29,70531.47,1983,46.39,High Spike,Revenue deviated significantly from historical average
+2011-08-11,72132.79,1984,27.12,High Spike,Revenue deviated significantly from historical average
+2011-09-20,109286.20999999999,1718,20.31,High Spike,Revenue deviated significantly from historical average
+2011-10-05,75244.43,2447,14.43,High Spike,Revenue deviated significantly from historical average
+2011-11-07,70001.08,2099,20.39,High Spike,Revenue deviated significantly from historical average
+2011-11-10,68956.24,3275,6.29,High Spike,Revenue deviated significantly from historical average
+2011-11-14,112141.11,3597,23.21,High Spike,Revenue deviated significantly from historical average
+2011-11-23,78480.7,3619,13.48,High Spike,Revenue deviated significantly from historical average
+2011-11-29,72219.2,4313,41.48,High Spike,Revenue deviated significantly from historical average
+2011-12-07,75076.22,2438,16.04,High Spike,Revenue deviated significantly from historical average
+2011-12-08,81417.78,4940,50.85,High Spike,Revenue deviated significantly from historical average
