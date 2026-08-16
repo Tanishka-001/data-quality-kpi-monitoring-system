@@ -258,7 +258,6 @@ A **Date Slicer** allows users to filter the dashboard by a selected date range 
 │ Trend                   │                                                           │
 └─────────────────────────────────────────────────────────────────────────────────────┘
 ```
-
 ---
 
 ## Python Notebook
