@@ -258,7 +258,7 @@ A **Date Slicer** allows users to filter the dashboard by a selected date range 
 │ Trend                   │                                                           │
 └─────────────────────────────────────────────────────────────────────────────────────┘
 ```
-powerbi dashboad/Screenshot 2026-08-16 143148.png
+
 ---
 
 ## Python Notebook
