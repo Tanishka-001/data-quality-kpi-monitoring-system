@@ -241,24 +241,11 @@ The Power BI dashboard provides an interactive monitoring interface containing:
 A **Date Slicer** allows users to filter the dashboard by a selected date range and analyze business KPIs and data-quality metrics for a specific period.
 
 ---
+## Dashboard
 
-## Dashboard Layout
+The Power BI dashboard provides an interactive monitoring interface for business KPIs and data quality.
 
-```text
-┌─────────────────────────────────────────────────────────────────────────────────────┐
-│          DATA QUALITY & BUSINESS KPI MONITORING SYSTEM                              │
-├────────────┬────────────┬────────────┬────────────────|─────────────────|───────────┤
-│  Revenue   │  Volume    │  Failure   │  Quality Score | Revenue Anomaly |DateSlicer │ 
-│   9.75M    │   542K     │   25.69%   │     91.34      |                 |           │
-├─────────────────────────┬───────────────────────────────────────────────────────────┤
-│ Daily Revenue Trend     │ Data Quality Issues                                       │
-│                         │                                                           │
-├─────────────────────────┼───────────────────────────────────────────────────────────┤ 
-│ Transaction Volume      │ Failure Rate Trend                                        │
-│ Trend                   │                                                           │
-└─────────────────────────────────────────────────────────────────────────────────────┘
-```
----
+![Data Quality & Business KPI Monitoring Dashboard](powerbidashboad/Dashboard.png)
 
 ## Python Notebook
 
